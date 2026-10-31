@@ -17,3 +17,4 @@ Copy [`template.md`](template.md) to start a new one.
 | [0009](0009-repo-layout.md) | Project at `demo_rag/` root; `projects/` untouched | Accepted | 0 |
 | [0010](0010-compose-and-nginx-design.md) | Compose build context at root, ngrok behind `tunnel` profile, nginx details, `/api/` stub | Accepted | 1 |
 | [0011](0011-profile-content-sourcing.md) | Profile/project content from public GitHub; no invented experience, resume hidden until supplied | Accepted | 1 |
+| [0012](0012-claude-code-review-hook.md) | Read-only code-reviewer subagent run by a PostToolUse hook after Claude edits code | Accepted | Tooling |

@@ -1,4 +1,5 @@
 import { profile } from '../data/staticSource'
+import { LinkedInIcon } from './LinkedInIcon'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Header() {
@@ -15,6 +16,9 @@ export function Header() {
           <a href="#experience">Experience</a>
           <a href={`https://github.com/${profile.githubUser}`} target="_blank" rel="noreferrer">
             GitHub
+          </a>
+          <a href={profile.linkedinUrl} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <LinkedInIcon />
           </a>
           <ThemeToggle />
         </nav>

@@ -4,6 +4,7 @@
   "location": "India",
   "company": "SapienPlus AI",
   "githubUser": "Shubhankar9934",
+  "linkedinUrl": "https://www.linkedin.com/in/shubhankar9934/",
   "resumeUrl": null,
   "skills": [
     { "group": "AI / ML", "items": ["LLMs", "RAG", "PyTorch", "Deep Learning", "NLP", "Computer Vision", "Time-Series Forecasting"] },

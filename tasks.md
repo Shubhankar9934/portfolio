@@ -37,6 +37,14 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 - [ ] Bump ESLint 9 -> 10 (npm reports 9.x as deprecated)
 - [ ] Add a CSP (needs hash/nonce for the inline theme script, see ADR-0010)
 
+## Tooling: Claude Code review hook (ADR-0012)
+- [x] `.claude/agents/code-reviewer.md`: read-only reviewer subagent
+- [x] `.claude/hooks/review-changed-file.mjs`: runs the reviewer after Claude edits a code file
+- [x] `.claude/settings.json`: `PostToolUse` hook on `Edit|Write|MultiEdit`
+- [x] Verified: markdown file skipped; `ThemeToggle.tsx` reviewed and verdict returned
+- [ ] Watch for false positives over a few sessions and tune the reviewer prompt
+- [ ] Decide whether to add a watcher for editor saves (not covered by the hook)
+
 ## Phase 2: Backend foundation (later, ADR-0004)
 - [ ] FastAPI service in `api/` with `/api/health` and `/api/projects`
 - [ ] Compose `backend` profile; nginx `/api/` stub becomes `proxy_pass http://api:8000;`
