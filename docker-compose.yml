@@ -1,0 +1,27 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+
+  # Public tunnel. Only runs with the `tunnel` profile (set COMPOSE_PROFILES=tunnel in .env).
+  ngrok:
+    image: ngrok/ngrok:latest
+    profiles: ["tunnel"]
+    restart: unless-stopped
+    command: ["http", "--url=${NGROK_DOMAIN:-}", "web:80"]
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN:-}
+    depends_on:
+      web:
+        condition: service_healthy
+
+  # Phase 2/3: add `api` (FastAPI) and `db` (PostgreSQL) here under profiles: ["backend"].

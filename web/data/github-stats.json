@@ -1,0 +1,47 @@
+{
+  "Intelligent-Voice-Enabled-Customer-Service": {
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2025-03-14T13:21:10Z"
+  },
+  "Google_Twillio_Supabase_Dialer": {
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2025-03-12T22:58:22Z"
+  },
+  "Real_Time_Call_Dialer": {
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2025-03-06T19:34:30Z"
+  },
+  "ASR_DIA_VAD": {
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2025-02-15T18:57:44Z"
+  },
+  "real_time_transcription": {
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2024-07-21T22:07:10Z"
+  },
+  "ANPR": {
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2023-11-28T09:20:41Z"
+  },
+  "yolov11_training": {
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2025-01-27T05:55:24Z"
+  },
+  "Graph-Variational-Autoencoder-for-Molecule-Generation": {
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2023-11-09T22:04:05Z"
+  },
+  "pytorch-paligemma": {
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2025-03-18T19:48:34Z"
+  }
+}

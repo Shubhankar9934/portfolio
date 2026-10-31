@@ -1,0 +1,123 @@
+GRAPH RAG - DEMO NOTES
+======================
+
+What is Graph RAG?
+------------------
+Graph RAG (Graph Retrieval-Augmented Generation) is a variant of RAG that stores
+knowledge as a graph of entities and relationships instead of (or alongside)
+plain text chunks in a vector index. At query time it retrieves connected
+subgraphs, so the LLM sees how facts relate to each other, not just which
+passages look similar to the question.
+
+Standard RAG vs Graph RAG
+-------------------------
+Standard RAG:
+  documents -> chunks -> embeddings -> vector DB
+  query -> embed -> top-k similar chunks -> LLM
+
+Graph RAG:
+  documents -> entity & relation extraction (LLM) -> knowledge graph
+  query -> find relevant entities -> traverse neighbours / communities -> LLM
+
+Where Graph RAG helps:
+  - Multi-hop questions ("Which suppliers of Company A also work with B?")
+  - Global / summary questions ("What are the main themes in this corpus?")
+  - Data with lots of named entities: people, orgs, products, events
+  - Explainability: the retrieved path shows why an answer was given
+
+Pipeline
+--------
+1. Ingest
+   Load documents and split them into chunks (e.g. 300-1000 tokens).
+
+2. Extract
+   Prompt an LLM on each chunk to output triples:
+     (subject) -[relation]-> (object)
+   plus entity types and short descriptions.
+
+3. Build the graph
+   - Merge duplicate entities ("OpenAI", "Open AI" -> one node)
+   - Store nodes/edges in a graph store (Neo4j, NetworkX, Memgraph, etc.)
+   - Keep a link from each node/edge back to its source chunk
+
+4. Community detection (optional, used by Microsoft GraphRAG)
+   Cluster the graph (e.g. Leiden algorithm) and have the LLM write a
+   summary for each community at several levels of detail.
+
+5. Index
+   Embed entity descriptions and community summaries so they can be found
+   by semantic search as well as by graph traversal.
+
+6. Query
+   Local search  - match entities in the question, expand 1-2 hops,
+                   collect related chunks, answer.
+   Global search - map the question over community summaries, then
+                   reduce the partial answers into a final answer.
+
+7. Generate
+   Pass the retrieved subgraph (as text triples) + source chunks to the LLM
+   and ask it to answer with citations.
+
+Toy Example
+-----------
+Source text:
+  "Alice works at Acme Corp. Acme Corp acquired Beta Labs in 2023.
+   Bob is the CTO of Beta Labs."
+
+Extracted triples:
+  (Alice)     -[WORKS_AT]->  (Acme Corp)
+  (Acme Corp) -[ACQUIRED]->  (Beta Labs)   {year: 2023}
+  (Bob)       -[CTO_OF]->    (Beta Labs)
+
+Graph:
+  Alice --WORKS_AT--> Acme Corp --ACQUIRED--> Beta Labs <--CTO_OF-- Bob
+
+Question: "Is Alice's company connected to Bob?"
+  - Vector RAG might retrieve only the Alice sentence or only the Bob
+    sentence, since no single chunk mentions both.
+  - Graph RAG starts at Alice, walks Alice -> Acme Corp -> Beta Labs <- Bob,
+    and answers: "Yes. Alice works at Acme Corp, which acquired Beta Labs
+    in 2023, where Bob is CTO."
+
+Minimal Python Sketch (NetworkX)
+--------------------------------
+  import networkx as nx
+
+  G = nx.DiGraph()
+  triples = [
+      ("Alice", "WORKS_AT", "Acme Corp"),
+      ("Acme Corp", "ACQUIRED", "Beta Labs"),
+      ("Bob", "CTO_OF", "Beta Labs"),
+  ]
+  for s, r, o in triples:
+      G.add_edge(s, o, relation=r)
+
+  # Treat edges as undirected for path finding
+  path = nx.shortest_path(G.to_undirected(), "Alice", "Bob")
+  context = []
+  for a, b in zip(path, path[1:]):
+      data = G.get_edge_data(a, b) or G.get_edge_data(b, a)
+      context.append(f"{a} -[{data['relation']}]- {b}")
+
+  print("\n".join(context))
+  # -> feed this context to the LLM along with the question
+
+Common Tools
+------------
+  - Microsoft GraphRAG    (community summaries, local/global search)
+  - LlamaIndex            (PropertyGraphIndex, KnowledgeGraphIndex)
+  - LangChain             (LLMGraphTransformer, GraphCypherQAChain)
+  - Neo4j                 (graph DB + vector index, Cypher queries)
+  - NetworkX              (in-memory graphs for prototyping)
+
+Trade-offs
+----------
+  + Better multi-hop reasoning and corpus-level summaries
+  + Answers can be traced through explicit relationships
+  - Indexing is slower and costs more (an LLM call per chunk)
+  - Extraction quality limits answer quality (missed or wrong triples)
+  - Entity resolution / deduplication is hard to get right
+  - Graph must be updated when source documents change
+
+Tip: a hybrid approach (vector search to find entry points, graph traversal
+to expand context) is often the best balance in practice.

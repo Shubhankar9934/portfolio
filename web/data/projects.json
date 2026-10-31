@@ -1,0 +1,65 @@
+[
+  {
+    "id": "voice-customer-service",
+    "repo": "Intelligent-Voice-Enabled-Customer-Service",
+    "title": "Intelligent Voice-Enabled Customer Service",
+    "summary": "Flask platform that pairs Deepgram's voice agent API with dynamic function calling for real-time, AI-driven customer service conversations.",
+    "tags": ["Python", "Flask", "Deepgram", "Voice AI"]
+  },
+  {
+    "id": "call-monitoring",
+    "repo": "Google_Twillio_Supabase_Dialer",
+    "title": "Call Monitoring System",
+    "summary": "Real-time call monitoring with live speech-to-text, OpenAI-generated summaries, WebSocket updates and call data stored in Supabase.",
+    "tags": ["Python", "Twilio", "Google STT", "OpenAI", "Supabase"]
+  },
+  {
+    "id": "realtime-dialer",
+    "repo": "Real_Time_Call_Dialer",
+    "title": "Real-Time Call Dialer",
+    "summary": "Flask dialer built on Twilio with Deepgram transcription: separate inbound and outbound transcripts streamed live to a monitoring UI.",
+    "tags": ["Python", "Flask", "Twilio", "Deepgram", "WebSockets"]
+  },
+  {
+    "id": "asr-diarization-vad",
+    "repo": "ASR_DIA_VAD",
+    "title": "ASR, Diarization and VAD",
+    "summary": "Speech processing experiments combining automatic speech recognition, speaker diarization and voice activity detection.",
+    "tags": ["Python", "ASR", "Diarization", "VAD"]
+  },
+  {
+    "id": "realtime-transcription",
+    "repo": "real_time_transcription",
+    "title": "Real-Time Transcription",
+    "summary": "Streaming speech-to-text pipeline for live audio.",
+    "tags": ["Python", "Speech-to-Text", "Streaming"]
+  },
+  {
+    "id": "anpr",
+    "repo": "ANPR",
+    "title": "Automatic Number Plate Recognition",
+    "summary": "Computer vision pipeline for detecting and reading vehicle number plates.",
+    "tags": ["Python", "Computer Vision"]
+  },
+  {
+    "id": "yolo-training-platform",
+    "repo": "yolov11_training",
+    "title": "YOLO Training Platform",
+    "summary": "Full-stack web app for training YOLO models: dataset validation, live training monitoring, history, metrics and model download.",
+    "tags": ["Node.js", "Python", "YOLO", "SQLite"]
+  },
+  {
+    "id": "graph-vae-molecules",
+    "repo": "Graph-Variational-Autoencoder-for-Molecule-Generation",
+    "title": "Graph VAE for Molecule Generation",
+    "summary": "PyTorch Geometric implementation of a graph variational autoencoder that encodes molecular graphs and generates new molecules.",
+    "tags": ["Python", "PyTorch Geometric", "Generative Models"]
+  },
+  {
+    "id": "paligemma",
+    "repo": "pytorch-paligemma",
+    "title": "PaliGemma in PyTorch",
+    "summary": "From-scratch PyTorch implementation of the PaliGemma vision-language model, pairing a SigLIP vision encoder with the Gemma language model, with a Streamlit demo.",
+    "tags": ["Python", "PyTorch", "Vision-Language", "Streamlit"]
+  }
+]

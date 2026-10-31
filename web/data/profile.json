@@ -1,0 +1,16 @@
+{
+  "name": "Shubhankar Kumar",
+  "headline": "AI Research Engineer focused on reliable LLM systems, RAG architectures, and low-latency AI under real-world constraints.",
+  "location": "India",
+  "company": "SapienPlus AI",
+  "githubUser": "Shubhankar9934",
+  "resumeUrl": null,
+  "skills": [
+    { "group": "AI / ML", "items": ["LLMs", "RAG", "PyTorch", "Deep Learning", "NLP", "Computer Vision", "Time-Series Forecasting"] },
+    { "group": "Voice & Real-Time", "items": ["ASR / Speech-to-Text", "Speaker Diarization", "VAD", "Twilio", "Deepgram", "WebSockets"] },
+    { "group": "Backend & Data", "items": ["Python", "Flask", "Node.js", "Supabase", "SQLite", "Pandas"] },
+    { "group": "Languages & Cloud", "items": ["TypeScript", "C / C++", "C#", "AWS", "Docker"] }
+  ],
+  "experience": [],
+  "education": []
+}
