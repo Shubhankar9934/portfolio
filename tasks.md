@@ -3,7 +3,7 @@
 Tracker for the phased build. Decisions live in [`decisions/`](decisions/README.md); reference them by number (ADR-0001 etc.).
 Status legend: `[ ]` todo, `[~]` in progress, `[x]` done, `[!]` blocked (reason noted).
 
-**Last updated:** 2026-11-03 (commit `c8d1ccd`, branch `main`; page layout restructured with shared `Section` wrapper (ADR-0016) and live on GitHub Pages; layout not yet checked in a browser)
+**Last updated:** 2026-11-03 (commit `a75073f`, branch `main`; page layout restructured with shared `Section` wrapper (ADR-0016), live on GitHub Pages, and checked by the user at phone width)
 
 **How this file is kept current** (rules also in `CLAUDE.md` → "Progress process"):
 - Mark items `[x]` in the same turn the work is done; add items found along the way.
@@ -46,7 +46,7 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 
 ### Phase 1 follow-ups (optional)
 - [ ] Check light theme visually (only the dark theme was screenshotted)
-- [ ] Check the layout at phone width in a browser
+- [x] Check the layout at phone width in a browser (checked by the user, ADR-0016)
 - [ ] Bump ESLint 9 -> 10 (npm reports 9.x as deprecated)
 - [ ] Add a CSP (needs hash/nonce for the inline theme script, see ADR-0010)
 
