@@ -20,3 +20,4 @@ Copy [`template.md`](template.md) to start a new one.
 | [0012](0012-claude-code-review-hook.md) | Read-only code-reviewer subagent run by a PostToolUse hook after Claude edits code | Accepted | Tooling |
 | [0013](0013-profile-photo.md) | Header profile photo driven by `profile.json`, silhouette placeholder until supplied | Accepted | 1 |
 | [0014](0014-directory-review-watcher.md) | Directory watcher reviews every code change; PostToolUse kept for Claude edits | Accepted | Tooling |
+| [0015](0015-social-links-in-header.md) | Social links (GitHub, LinkedIn, X) appear once, in the header | Accepted | 1 |

@@ -1,6 +1,6 @@
 import { profile } from '../data/staticSource'
-import { LinkedInIcon } from './LinkedInIcon'
 
+// GitHub and LinkedIn links live in the header (ADR-0015), so the footer only carries the copyright.
 export function Footer() {
   return (
     <footer className="site-footer">
@@ -8,13 +8,6 @@ export function Footer() {
         <span>
           &copy; {new Date().getFullYear()} {profile.name}
         </span>
-        <a href={`https://github.com/${profile.githubUser}`} target="_blank" rel="noreferrer">
-          github.com/{profile.githubUser}
-        </a>
-        <a href={profile.linkedinUrl} target="_blank" rel="noreferrer" className="footer-linkedin">
-          <LinkedInIcon />
-          LinkedIn
-        </a>
       </div>
     </footer>
   )

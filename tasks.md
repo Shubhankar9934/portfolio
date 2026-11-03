@@ -30,7 +30,7 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 - [ ] Decide whether `sapienplus_folk_system` should be public-facing
 - [ ] Experience and education details (`web/data/profile.json`)
 - [ ] Profile photo: user supplies the image; create `web/public/` (needs approval), add file, set `photoUrl` (placeholder in place, ADR-0013)
-- [ ] X (Twitter) profile URL: set `twitterUrl` in `profile.json` to show the header icon (currently hidden)
+- [ ] X (Twitter) profile URL (ADR-0015 puts social links in the header only): set `twitterUrl` in `profile.json` to show the header icon (currently hidden)
 - [ ] `resume.pdf` in `web/public/` and set `resumeUrl` in `profile.json`
 - [ ] `NGROK_AUTHTOKEN` and static domain in `.env` (copy `.env.example`), then `COMPOSE_PROFILES=tunnel`
 

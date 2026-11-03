@@ -297,12 +297,6 @@ h3 {
   gap: 8px;
 }
 
-.footer-linkedin {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .card {
     transition: none;
