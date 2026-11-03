@@ -5,7 +5,9 @@
   "company": "SapienPlus AI",
   "githubUser": "Shubhankar9934",
   "linkedinUrl": "https://www.linkedin.com/in/shubhankar9934/",
+  "twitterUrl": null,
   "resumeUrl": null,
+  "photoUrl": null,
   "skills": [
     { "group": "AI / ML", "items": ["LLMs", "RAG", "PyTorch", "Deep Learning", "NLP", "Computer Vision", "Time-Series Forecasting"] },
     { "group": "Voice & Real-Time", "items": ["ASR / Speech-to-Text", "Speaker Diarization", "VAD", "Twilio", "Deepgram", "WebSockets"] },

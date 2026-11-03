@@ -29,7 +29,9 @@ export interface Profile {
   company: string
   githubUser: string
   linkedinUrl: string
+  twitterUrl: string | null
   resumeUrl: string | null
+  photoUrl: string | null
   skills: { group: string; items: string[] }[]
   experience: TimelineEntry[]
   education: TimelineEntry[]

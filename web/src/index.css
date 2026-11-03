@@ -80,6 +80,35 @@ a:hover {
   letter-spacing: -0.02em;
 }
 
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-photo {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  background: var(--tag-bg);
+}
+
+.profile-photo--placeholder {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: var(--muted);
+  overflow: hidden;
+}
+
+.profile-photo--placeholder svg {
+  width: 70%;
+  height: 70%;
+}
+
 .headline {
   margin: 4px 0 0;
   max-width: 52ch;

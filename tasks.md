@@ -29,6 +29,8 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 - [ ] Review/confirm featured projects and summaries (three are inferred from repo names only, see ADR-0011)
 - [ ] Decide whether `sapienplus_folk_system` should be public-facing
 - [ ] Experience and education details (`web/data/profile.json`)
+- [ ] Profile photo: user supplies the image; create `web/public/` (needs approval), add file, set `photoUrl` (placeholder in place, ADR-0013)
+- [ ] X (Twitter) profile URL: set `twitterUrl` in `profile.json` to show the header icon (currently hidden)
 - [ ] `resume.pdf` in `web/public/` and set `resumeUrl` in `profile.json`
 - [ ] `NGROK_AUTHTOKEN` and static domain in `.env` (copy `.env.example`), then `COMPOSE_PROFILES=tunnel`
 
@@ -43,7 +45,8 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 - [x] `.claude/settings.json`: `PostToolUse` hook on `Edit|Write|MultiEdit`
 - [x] Verified: markdown file skipped; `ThemeToggle.tsx` reviewed and verdict returned
 - [ ] Watch for false positives over a few sessions and tune the reviewer prompt
-- [ ] Decide whether to add a watcher for editor saves (not covered by the hook)
+- [ ] Review findings from the watcher appear in its log, not in the Claude chat: `Get-Content -Wait $env:TEMP\portfolio-review-watcher.log`
+- [x] Watcher for editor saves and other changes: `review-watcher.mjs`, started by a SessionStart hook (ADR-0014)
 
 ## Phase 2: Backend foundation (later, ADR-0004)
 - [ ] FastAPI service in `api/` with `/api/health` and `/api/projects`

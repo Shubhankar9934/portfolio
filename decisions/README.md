@@ -18,3 +18,5 @@ Copy [`template.md`](template.md) to start a new one.
 | [0010](0010-compose-and-nginx-design.md) | Compose build context at root, ngrok behind `tunnel` profile, nginx details, `/api/` stub | Accepted | 1 |
 | [0011](0011-profile-content-sourcing.md) | Profile/project content from public GitHub; no invented experience, resume hidden until supplied | Accepted | 1 |
 | [0012](0012-claude-code-review-hook.md) | Read-only code-reviewer subagent run by a PostToolUse hook after Claude edits code | Accepted | Tooling |
+| [0013](0013-profile-photo.md) | Header profile photo driven by `profile.json`, silhouette placeholder until supplied | Accepted | 1 |
+| [0014](0014-directory-review-watcher.md) | Directory watcher reviews every code change; PostToolUse kept for Claude edits | Accepted | Tooling |
