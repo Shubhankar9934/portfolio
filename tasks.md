@@ -3,7 +3,7 @@
 Tracker for the phased build. Decisions live in [`decisions/`](decisions/README.md); reference them by number (ADR-0001 etc.).
 Status legend: `[ ]` todo, `[~]` in progress, `[x]` done, `[!]` blocked (reason noted).
 
-**Last updated:** 2026-11-03 (commit `618e21f`, branch `main`; page layout restructured with shared `Section` wrapper (ADR-0016); uncommitted changes pending)
+**Last updated:** 2026-11-03 (commit `c8d1ccd`, branch `main`; page layout restructured with shared `Section` wrapper (ADR-0016) and live on GitHub Pages; layout not yet checked in a browser)
 
 **How this file is kept current** (rules also in `CLAUDE.md` → "Progress process"):
 - Mark items `[x]` in the same turn the work is done; add items found along the way.
@@ -32,6 +32,7 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 - [x] `docker/nginx/default.conf`: SPA fallback, gzip, caching, security headers, reserved `/api/` block (ADR-0010)
 - [x] `docker-compose.yml`: `web` + `ngrok` (profile `tunnel`), `.env.example`, `.gitignore`, `.dockerignore` (ADR-0007, ADR-0010)
 - [x] Verified locally: `npm run lint`, `npm run build`, `docker compose build`, site at http://localhost:8080 (200, SPA fallback, healthy, gzip, asset caching, security headers, `/api/` returns 503 stub)
+- [x] Deployed to GitHub Pages (`https://shubhankar9934.github.io/portfolio/`) via `.github/workflows/pages.yml` on merge to `main`
 - [ ] Verify the public ngrok URL (blocked on `NGROK_AUTHTOKEN` + static domain in `.env`)
 
 ### Phase 1 inputs still needed from user
@@ -45,6 +46,7 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 
 ### Phase 1 follow-ups (optional)
 - [ ] Check light theme visually (only the dark theme was screenshotted)
+- [ ] Check the layout at phone width in a browser
 - [ ] Bump ESLint 9 -> 10 (npm reports 9.x as deprecated)
 - [ ] Add a CSP (needs hash/nonce for the inline theme script, see ADR-0010)
 
