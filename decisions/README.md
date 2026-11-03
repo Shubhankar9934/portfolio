@@ -22,3 +22,4 @@ Copy [`template.md`](template.md) to start a new one.
 | [0014](0014-directory-review-watcher.md) | Directory watcher reviews every code change; PostToolUse kept for Claude edits | Accepted | Tooling |
 | [0015](0015-social-links-in-header.md) | Social links (GitHub, LinkedIn, X) appear once, in the header | Accepted | 1 |
 | [0016](0016-page-layout-structure.md) | Shared `Section` wrapper for every content section; fixed section order | Accepted | 1 |
+| [0017](0017-content-security-policy.md) | Content-Security-Policy header with a hash for the inline theme script | Accepted | 1 |

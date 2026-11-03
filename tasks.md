@@ -3,7 +3,7 @@
 Tracker for the phased build. Decisions live in [`decisions/`](decisions/README.md); reference them by number (ADR-0001 etc.).
 Status legend: `[ ]` todo, `[~]` in progress, `[x]` done, `[!]` blocked (reason noted).
 
-**Last updated:** 2026-11-03 (commit `a75073f`, branch `main`; page layout restructured with shared `Section` wrapper (ADR-0016), live on GitHub Pages, and checked by the user at phone width)
+**Last updated:** 2026-11-03 (commit `6f78b90`, branch `main`; CSP header added on branch `add-csp-header` (ADR-0017), pending merge; page layout live on GitHub Pages and checked by the user at phone width)
 
 **How this file is kept current** (rules also in `CLAUDE.md` → "Progress process"):
 - Mark items `[x]` in the same turn the work is done; add items found along the way.
@@ -48,7 +48,7 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 - [ ] Check light theme visually (only the dark theme was screenshotted)
 - [x] Check the layout at phone width in a browser (checked by the user, ADR-0016)
 - [ ] Bump ESLint 9 -> 10 (npm reports 9.x as deprecated)
-- [ ] Add a CSP (needs hash/nonce for the inline theme script, see ADR-0010)
+- [x] Add a Content-Security-Policy header: nginx sends it, with a sha256 hash for the inline theme script (ADR-0017)
 
 ## Tooling: Claude Code review hook (ADR-0012)
 - [x] `.claude/agents/code-reviewer.md`: read-only reviewer subagent
@@ -61,7 +61,7 @@ Plan file: `C:\Users\Shubhankar\.claude\plans\deep-meandering-dove.md`
 
 ## Testing
 - [x] `web/scripts/check-docs.mjs` (`npm run test:docs`): checks ADR index and links, ADR numbers and statuses, checkbox markers, and the `Last updated` commit. Passes 10/10 on the repo; a copy with four planted errors fails 4 checks.
-- [ ] Site smoke test (Docker build, `/healthz`, SPA fallback): needs Docker Desktop running. Not run in this session.
+- [ ] Site smoke test (Docker build, `/healthz`, SPA fallback, CSP has no console errors): needs Docker Desktop running. Not run in this session.
 - [ ] Decide whether to add a site test runner (none exists; `npm run build` and `npm run lint` are the only checks today)
 
 ## Phase 2: Backend foundation (later, ADR-0004)
