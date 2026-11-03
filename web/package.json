@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "sync": "node scripts/sync-github.mjs",
+    "test:docs": "node scripts/check-docs.mjs",
     "build": "tsc --noEmit && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

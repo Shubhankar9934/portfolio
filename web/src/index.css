@@ -142,14 +142,25 @@ a:hover {
   cursor: pointer;
 }
 
-/* Sections */
-main section {
+/* Sections (ADR-0016): one shared structure, header then body */
+.section {
   padding: 48px 0 8px;
   scroll-margin-top: 8px;
 }
 
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-intro {
+  margin: 4px 0 0;
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 h2 {
-  margin: 0 0 20px;
+  margin: 0;
   font-size: 1.35rem;
   letter-spacing: -0.01em;
 }

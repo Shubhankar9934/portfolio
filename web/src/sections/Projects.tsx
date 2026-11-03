@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ProjectCard } from '../components/ProjectCard'
+import { Section } from '../components/Section'
 import { createProjectsSource } from '../data/source'
 import { profile } from '../data/staticSource'
 import type { Project } from '../data/types'
@@ -21,8 +22,7 @@ export function Projects() {
   }, [])
 
   return (
-    <section id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">Featured projects</h2>
+    <Section id="projects" title="Featured projects">
       {state.status === 'loading' && <p className="muted">Loading projects…</p>}
       {state.status === 'error' && <p className="muted">Projects could not be loaded. Please try again later.</p>}
       {state.status === 'ready' && (
@@ -37,6 +37,6 @@ export function Projects() {
           View all repositories on GitHub →
         </a>
       </p>
-    </section>
+    </Section>
   )
 }

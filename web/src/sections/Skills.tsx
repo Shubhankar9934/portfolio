@@ -1,9 +1,9 @@
+import { Section } from '../components/Section'
 import { profile } from '../data/staticSource'
 
 export function Skills() {
   return (
-    <section id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills &amp; tech stack</h2>
+    <Section id="skills" title="Skills &amp; tech stack">
       <div className="skills">
         {profile.skills.map((group) => (
           <div key={group.group}>
@@ -16,6 +16,6 @@ export function Skills() {
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   )
 }

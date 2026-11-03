@@ -21,3 +21,4 @@ Copy [`template.md`](template.md) to start a new one.
 | [0013](0013-profile-photo.md) | Header profile photo driven by `profile.json`, silhouette placeholder until supplied | Accepted | 1 |
 | [0014](0014-directory-review-watcher.md) | Directory watcher reviews every code change; PostToolUse kept for Claude edits | Accepted | Tooling |
 | [0015](0015-social-links-in-header.md) | Social links (GitHub, LinkedIn, X) appear once, in the header | Accepted | 1 |
+| [0016](0016-page-layout-structure.md) | Shared `Section` wrapper for every content section; fixed section order | Accepted | 1 |

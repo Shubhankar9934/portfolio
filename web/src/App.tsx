@@ -9,6 +9,7 @@ export default function App() {
     <>
       <Header />
       <main className="container">
+        {/* Section order is the page order; nav links in Header.tsx follow it (ADR-0016) */}
         <Projects />
         <Skills />
         <Experience />
