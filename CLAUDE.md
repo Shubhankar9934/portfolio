@@ -21,7 +21,9 @@ From the repo root (Docker Desktop must be running):
 - `docker compose --profile tunnel up -d` - also start ngrok (needs `NGROK_AUTHTOKEN` and `NGROK_DOMAIN` in `.env`; copy `.env.example`)
 - Health check: `curl localhost:8080/healthz`; reserved API stub: `curl -i localhost:8080/api/health` (503 until Phase 2)
 
-There is no test suite yet.
+Tests:
+- `npm run test:docs` - checks that `tasks.md`, `CLAUDE.md`, and the ADR index agree (ADR numbers and links, checkbox markers, `Last updated` commit). Runs without Docker. To test another copy of the docs, set `DOCS_ROOT` (PowerShell: `$env:DOCS_ROOT='path'`).
+- There is no test suite for the site yet.
 
 ## Architecture
 
@@ -35,3 +37,13 @@ There is no test suite yet.
 
 - Ask the user for permission before creating any folder or directory, including folders created implicitly by scaffolding tools or by writing a file to a new path.
 - Do not invent personal facts (experience, education, contact details) in `profile.json`; leave them empty until the user supplies them (ADR-0011).
+
+## Progress process (keep this updated every session)
+
+Claude must update these two files as work happens, not only when asked:
+
+1. **After finishing any task item** in `tasks.md`: change `[ ]` to `[x]` (or `[~]` when started, `[!]` when blocked with the reason on the same line). Add new items you discover. Do this in the same turn as the work, before reporting completion.
+2. **After any non-trivial decision**: add the next numbered ADR, add a row to `decisions/README.md`, and reference it in `tasks.md`.
+3. **After a change to architecture, commands, folders, or config** (new service, new script, new env var, new hook, new file that future sessions must know about): update the relevant section of this `CLAUDE.md`. Keep it short; do not copy task lists or history here.
+4. **Refresh the `Last updated` line** at the top of `tasks.md` (date and short commit hash) whenever you change `tasks.md`.
+5. **Before ending a session with uncommitted work**, check that `tasks.md` matches what was actually done. Commit only when the user asks.

@@ -1,3 +1,4 @@
+import { Section } from '../components/Section'
 import { profile } from '../data/staticSource'
 import type { TimelineEntry } from '../data/types'
 
@@ -10,7 +11,7 @@ function Timeline({ title, entries }: { title: string; entries: TimelineEntry[] 
       ) : (
         <ol className="timeline">
           {entries.map((entry) => (
-            <li key={`${entry.organization}-${entry.period}`}>
+            <li key={`${entry.organization}-${entry.period}-${entry.title}`}>
               <p className="timeline-period">{entry.period}</p>
               <p className="timeline-title">
                 {entry.title} · {entry.organization}
@@ -26,8 +27,7 @@ function Timeline({ title, entries }: { title: string; entries: TimelineEntry[] 
 
 export function Experience() {
   return (
-    <section id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title">Experience &amp; education</h2>
+    <Section id="experience" title="Experience &amp; education">
       <div className="two-col">
         <Timeline title="Experience" entries={profile.experience} />
         <Timeline title="Education" entries={profile.education} />
@@ -39,6 +39,6 @@ export function Experience() {
           </a>
         </p>
       )}
-    </section>
+    </Section>
   )
 }
