@@ -25,10 +25,15 @@ export function Header() {
           <a href={profile.linkedinUrl} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
             <LinkedInIcon />
           </a>
-          {profile.twitterUrl && (
+          {profile.twitterUrl ? (
             <a href={profile.twitterUrl} target="_blank" rel="noreferrer" aria-label="X (Twitter)" title="X (Twitter)">
               <XIcon />
             </a>
+          ) : (
+            // No X URL yet: show the icon muted and inert rather than linking somewhere wrong.
+            <span className="social-placeholder" aria-hidden="true" title="X profile link coming soon">
+              <XIcon />
+            </span>
           )}
           <ThemeToggle />
         </nav>
